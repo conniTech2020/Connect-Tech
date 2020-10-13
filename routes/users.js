@@ -11,7 +11,7 @@ const User = require('../models/User');
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/test', function(req, res, next) {
+router.get('/', function(req, res, next) {
   const users = [{
     "id": 1,
     "name": "avrham"
@@ -27,7 +27,7 @@ router.get('/test', function(req, res, next) {
 // @desc     Get all Users
 // @access   Public
 
-router.get('/', User_Cntrl.getAllUsers);
+router.get('/getAllUsers', User_Cntrl.getAllUsers);
 
 /////////////////////////////////////////////////////
 
