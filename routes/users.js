@@ -6,11 +6,27 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   const users = [{
     "id": 1,
-    "name": "אברהם האלוף"
+    "name": "avrham"
   },
   {
     "id": 2,
+    "name": "shuki"
+  },
+  {
+    "id": 3,
     "name": "yosef"
+  },
+  {
+    "id": 4,
+    "name": "ithak"
+  },
+  {
+    "id": 5,
+    "name": "tom"
+  },
+  {
+    "id": 6,
+    "name": "effi"
   }];
   res.send(users);
 });
