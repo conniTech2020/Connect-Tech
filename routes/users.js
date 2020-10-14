@@ -23,11 +23,11 @@ router.get('/', function(req, res, next) {
   res.send(users);
 });
 
-// @route    GET /User
+// @route    GET /users
 // @desc     Get all Users
 // @access   Public
 
-router.get('/getAllUsers', User_Controller.getAllUsers);
+router.get('/', User_Controller.getAllUsers);
 
 /////////////////////////////////////////////////////
 
@@ -36,5 +36,38 @@ router.get('/getAllUsers', User_Controller.getAllUsers);
 // @access   Public
 
 router.post('/register', User_Controller.validationChecks, User_Controller.CreateUser);
+
+/////////////////////////////////////////////////////////////
+// @route    POST /users/login
+// @desc     Authenticate User & get token
+// @access   Public
+
+router.post('/login', User_Controller.validateLoginInput, User_Controller.loginUser);
+
+/////////////////////////////////////////////////////////////
+
+router.post('/tokenIsValid', async (req, res) => {
+  try {
+    const token = req.header('x-auth-token');
+    if (!token) return res.json(false);
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    if(!verified) return res.json(false)
+    const user = await User.findById(verified.id);
+    if(!user) return res.json(false)
+
+    return res.json(true)
+  } catch (err) {
+      return err.message
+  }
+    
+});
+/////////////////////////////////////////////////////////////
+
+// @route    GET /users/userauth
+// @desc     Test route
+// @access   Public
+
+router.get('/userauth', auth, User_Controller.authenticateUser);
+
 
 module.exports = router;
