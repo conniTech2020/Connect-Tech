@@ -17,9 +17,6 @@ var app = express();
 //connect DataBase
 connectDB();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(cors());
