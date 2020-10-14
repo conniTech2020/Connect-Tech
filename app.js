@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
 const connectDB = require('./config/db')
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3000
+//const PORT = process.env.PORT || 3001
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -52,5 +52,5 @@ app.use(function(err, req, res, next) {
 
   
 });
-app.listen(PORT, () => console.log(`server listening on port: ${PORT}`));
+//app.listen(PORT, () => console.log(`server listening on port: ${PORT}`));
 module.exports = app;

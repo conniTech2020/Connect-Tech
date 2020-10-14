@@ -3,7 +3,7 @@ const auth = require('../middleware/auth');
 // const gravatar = require('gravatar');
 // const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User_Cntrl = require('../controllers/User_controller');
+const User_Controller = require('../controllers/User_controller');
 //const { json } = require('express');
 
 const User = require('../models/User');
@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
 // @desc     Get all Users
 // @access   Public
 
-router.get('/getAllUsers', User_Cntrl.getAllUsers);
+router.get('/getAllUsers', User_Controller.getAllUsers);
 
 /////////////////////////////////////////////////////
 
@@ -35,6 +35,6 @@ router.get('/getAllUsers', User_Cntrl.getAllUsers);
 // @desc     Register User
 // @access   Public
 
-router.post('/register', User_Cntrl.validationChecks, User_Cntrl.CreateUser);
+router.post('/register', User_Controller.validationChecks, User_Controller.CreateUser);
 
 module.exports = router;
