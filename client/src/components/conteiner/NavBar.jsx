@@ -12,13 +12,13 @@ const Navbar = () => {
       </h1>
       <ul>
         <li>
-          <Link className="" to="/lecture">
+          <Link className="" to="/userComponents">
             Lecture
           </Link>
         </li>
         <li>
-          <Link className="" to="/studentProfile">
-          StudentProfile
+          <Link className="" to="/userProfile">
+          UserProfile
           </Link>
         </li>
         <li>
@@ -44,12 +44,5 @@ const Navbar = () => {
   );
 };
 
-// function myFunction() {
-//   var x = document.getElementById("navbar");
-//   if (x.style.display === "block") {
-//     x.style.display = "none";
-//   } else {
-//     x.style.display = "block";
-//   }
-// }
+
 export default Navbar;

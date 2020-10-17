@@ -10,17 +10,15 @@ function Lecture(props) {
       <div className="aboutus">
         <div className="about-section">
           <h1>All Lectures</h1>
-          <p>Some text about who we are and what we do.</p>
           <p>
             If you want to be a computer programmer then you’ve come to the
             right place
           </p>
+          <p>find your mentor.</p>
         </div>
         <div class="row">
           <Search />
           <CreateCard />
-          {/* <CreateCard />
-          <CreateCard /> */}
         </div>
       </div>
       <Footer/>
