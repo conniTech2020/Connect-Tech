@@ -12,13 +12,13 @@ const Navbar = () => {
       </h1>
       <ul>
         <li>
-          <Link className="" to="/userComponents">
-            Lecture
+          <Link className="" to="/lectureCards">
+          LectureCards
           </Link>
         </li>
         <li>
-          <Link className="" to="/userProfile">
-          UserProfile
+          <Link className="" to="/studentProfile">
+          StudentProfile
           </Link>
         </li>
         <li>

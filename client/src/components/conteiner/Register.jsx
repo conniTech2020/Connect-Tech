@@ -85,16 +85,17 @@ const Register = () => {
             name="password2"
             value={password2}
             onChange={onChange}
-          />
+            />
         </div>
-        {/* <div className="form-group">
-          <select name="cars" id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
-        </div> */}
+        <div className="form-group">
+            <div>Choose one of the options .</div>
+            <input id="Student" name="who"  type="radio" checked="checked" />
+          <label className="Radio-Buttons" for="Student" >Student</label>
+            <span class="checkmark"></span>
+            <input id="Lecture" name="who" type="radio" checked="checked" />
+           <label className="Radio-Buttons" for="Lecture" >Lecture</label>
+            <span class="checkmark"></span>
+        </div>
         <input type="submit" className="btn btn-primary" value="Register" />
       </form>
       <p style={{ color: "red" }}>{error}</p>
