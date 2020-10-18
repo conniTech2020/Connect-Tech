@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "http://localhost:3001",
 });
 export const getAllUsers = () => api.get(`/`);
 
 //export const insertStudent = (payload) => api.post(`/student`, payload);
-export const registerUser = (payload) => {
+export const CreateUser = (payload) => {
   debugger;
   return api.post(`/users/register`, payload);
 };
@@ -19,7 +19,7 @@ const apis = {
   updateStudentById,
   deleteStudentById,
   getStudentById,
-  registerUser,
+  CreateUser,
 };
 
 export default apis; //proxy/gateway/accessor

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { registerUser } from "../../api/index";
+import { CreateUser } from "../../api/index";
 import Footer from "../basicComponents/Footer"
 
 
@@ -15,7 +15,7 @@ const Register = () => {
     // status: "", // check box
     // skills: "", // string Array
   });
-
+ 
   const { fullName, email, password, password2 } = formData;
 
   const onChange = (e) => {
@@ -36,11 +36,17 @@ const Register = () => {
   };
 
   const makenewuser = async () => {
+    
     try {
-      const response = await registerUser(formData);
+      const response = await CreateUser(formData);
+     // console.log(err.response.data.errors[0].msg);
       setsucceed("new user created!");
       seterror("");
     } catch (err) {
+      if (!err.response) {
+        throw err;
+      }
+     
       seterror(err.response.data.errors[0].msg);
     }
   };

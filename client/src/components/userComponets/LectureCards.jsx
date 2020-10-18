@@ -3,9 +3,12 @@ import Card from "../basicComponents/Card";
 import CreateCard from "../basicComponents/CreateCards";
 import Search from "../basicComponents/Search";
 import Footer from "../basicComponents/Footer"
-
+//TODO 
+//axious 
 function Lecture(props) {
   return (
+    //TODO
+    //map.
     <Fragment>
       <div className="aboutus">
         <div className="about-section">

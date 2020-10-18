@@ -11,23 +11,6 @@ import axios from "axios";
 import './App.css';
 
 function App() {
-  // const [users, setUsers] = useState([]);
-  // useEffect(() => {
-  //   // Address should be replaced with FQDN of application and taken from ENV
-  //   const domain = process.env.REACT_APP_DOMAIN;
-  //   const http = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-  //   fetch(`${http}://${domain}/users`, {
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json'
-  //     }
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setUsers(data);
-  //     }).catch((err) => console.log(err));
-  // }, []);
 
     const [user, setUser] = useState({
     token: null,
@@ -35,7 +18,7 @@ function App() {
   });
   const checkLogin = async () => {
     let token = localStorage.getItem("authToken");
-    const tokenRes = await axios.post("/api/users/tokenIsValid", null, {
+    const tokenRes = await axios.post("routs/users/tokenIsValid", null, {
       headers: { "x-auth-token": token },
     });
     if (tokenRes.data) {
