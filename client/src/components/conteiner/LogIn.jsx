@@ -20,7 +20,7 @@ export default function Login() {
     // if(email and password in DB) then do row 21
     //else - something else
     console.log(email, password);
-    const res = await axios.post("/api/users/login", { email, password });
+    const res = await axios.post("/users/login", { email, password });
     localStorage.setItem("authToken", res.data.token);
     setRedirect(true);
   }
