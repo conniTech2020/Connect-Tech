@@ -96,7 +96,7 @@ const CreateUser = async (req, res) => {
         res.json({ token });
       }
     );
-    //}
+    
     /////////////////////////////////////
   } catch (err) {
     console.error(err.message);
@@ -145,7 +145,19 @@ const loginUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find().populate("user", ["fullName", "avatar"]);
+    const users = await User.find({isTeacher:false}).populate("user", ["fullName", "avatar"]);
+    res.json(users);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+};
+
+/////////////////////////////////////////////////
+
+const getAllTeachers = async (req, res) => {
+  try {
+    const users = await User.find({isTeacher:true}).populate("user", ["fullName", "avatar"]);
     res.json(users);
   } catch (err) {
     console.error(err.message);
@@ -169,5 +181,6 @@ module.exports = {
   validateLoginInput,
   loginUser,
   getAllUsers,
+  getAllTeachers,
   authenticateUser,
 };

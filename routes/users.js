@@ -23,11 +23,20 @@ const router = express.Router();
 //   res.send(users);
 // });
 
-// @route    GET /users
+// @route    GET /users/getAllStudent
 // @desc     Get all Users
 // @access   Public
 
-router.get('/', User_Controller.getAllUsers);
+router.get('/getAllStudent', User_Controller.getAllUsers);
+
+/////////////////////////////////////////////////////
+
+// @route    GET /users/getAllTeacher
+// @desc     Get all Users
+// @access   Public
+
+router.get('/getAllTeachers', User_Controller.getAllTeachers);
+
 
 /////////////////////////////////////////////////////
 
