@@ -11,17 +11,17 @@ const User = require('../models/User');
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  const users = [{
-    "id": 1,
-    "name": "avrham"
-  },
-  {
-    "id": 2,
-    "name": "shuki"
-  }];
-  res.send(users);
-});
+// router.get('/', function(req, res, next) {
+//   const users = [{
+//     "id": 1,
+//     "name": "avrham"
+//   },
+//   {
+//     "id": 2,
+//     "name": "shuki"
+//   }];
+//   res.send(users);
+// });
 
 // @route    GET /users
 // @desc     Get all Users

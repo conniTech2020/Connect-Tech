@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
   location: { type: String },
   // skills: { type: [String], required: true },
   bio: { type: String },
-  githubusername: { type: String },
+  githubusername: { type: String }, 
   experience: [
     {
       title: {

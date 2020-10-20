@@ -2,9 +2,18 @@ import React, { Fragment } from "react";
 import Card from "../basicComponents/Card";
 import CreateCard from "../basicComponents/CreateCards";
 import Search from "../basicComponents/Search";
-import Footer from "../basicComponents/Footer"
-//TODO 
-//axious 
+import Footer from "../basicComponents/Footer";
+import { getAllUser } from "../../api/index";
+import axios from "axios";
+ 
+
+
+// const getAllUser = ()=>{
+//   const [error, seterror] = useState("");
+//   const [succeed, setsucceed] = useState("");
+
+// }
+
 function Lecture(props) {
   return (
     //TODO
