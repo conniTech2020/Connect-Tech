@@ -38,7 +38,7 @@ router.get('/getAllStudent', User_Controller.getAllUsers);
 router.get('/getAllTeachers', User_Controller.getAllTeachers);
 
 
-/////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 
 // @route    POST /users/register
 // @desc     Register User
