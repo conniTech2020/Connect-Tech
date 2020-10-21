@@ -175,6 +175,24 @@ const authenticateUser = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  console.log("------------");
+  const { _id } = req.body;
+  await User.findOneAndDelete({ _id }, (err, deleteuser) => {
+   
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+    if (!deleteuser) {
+      return res
+        .status(404)
+        .json({ success: false, error: `user not found` });
+    }
+    return res.status(200).json({ success: false, data: deleteuser });
+  }).catch((err) => console.log(err));
+};
+
+
 module.exports = {
   CreateUser,
   validationChecks,
@@ -183,4 +201,5 @@ module.exports = {
   getAllUsers,
   getAllTeachers,
   authenticateUser,
+  deleteUser,
 };

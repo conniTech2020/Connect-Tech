@@ -2,27 +2,32 @@ import React from "react";
 import Card from "./Card";
 // import User from "./ListUsers";
 import apis from "../../api/index";
- 
+import {useState} from "react"; 
+import {useEffect} from "react";
 
-function createCard(Teachers) {
+function createCard(teacher) {
   return (
     <Card
-      key={Teachers.id}
-      name={Teachers.name}
-      // title={User.title}
-      // someTXT={User.someTXT}
-      // img={User.imgURL}
-      // phone={User.phone}
-      // email={User.email}
-      // age={User.age}
+      key={teacher.id}
+      name={teacher.fullName}
+      email={teacher.email}
+      someTXT={teacher.someTXT}
+      img={teacher.Avatar}
+      phone={teacher.phone}
+      age={teacher.age}
     />
   );
 }
 
-function CreateCard() {
+function CreateCards() {
+  const [teachers, setTeachers] = useState([]);
+  useEffect(async ()=>{
+    const respone = await apis.getAllTeachers();
+    setTeachers(respone);
+  },[]);
   console.log("this --------",apis);
- const Teachers  = apis.getAllTeachers();
-  return <div>{Teachers.map(createCard)}</div>;
+ //const teachers  = apis.getAllTeachers().then(response=>response.data);
+  return <div>{teachers.map(createCard)}</div>;
 }
 
-export default CreateCard;
+export default CreateCards;

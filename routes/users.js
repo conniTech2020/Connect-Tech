@@ -70,6 +70,11 @@ router.post('/tokenIsValid', async (req, res) => {
   }
     
 });
+
+//@ route GET/users/deleteUser
+
+router.delete('/deleteUser', auth, User_Controller.deleteUser);
+
 /////////////////////////////////////////////////////////////
 
 // @route    GET /users/userauth

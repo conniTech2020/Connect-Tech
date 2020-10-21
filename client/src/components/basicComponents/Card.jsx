@@ -10,7 +10,6 @@ function Card(props) {
           <h2>{props.name}</h2>
           <p class="title">{props.title}</p>
           <p>{props.someTXT}</p>
-          <p>mike@example.com</p>
           <p>{props.phone}</p>
           <p className="Crardicon">{props.email}</p>
           <p>{props.age}</p>

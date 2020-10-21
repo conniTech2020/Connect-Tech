@@ -17,7 +17,7 @@ export const Footer = () => {
           </a>
           <a className="iconFooter">
             <i className="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
+          </a> 
           <a className="iconFooter">
             <i className="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
           </a>
