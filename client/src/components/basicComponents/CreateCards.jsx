@@ -25,8 +25,6 @@ function CreateCards() {
     const respone = await apis.getAllTeachers();
     setTeachers(respone);
   },[]);
-  console.log("this --------",apis);
- //const teachers  = apis.getAllTeachers().then(response=>response.data);
   return <div>{teachers.map(createCard)}</div>;
 }
 

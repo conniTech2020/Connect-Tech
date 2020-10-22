@@ -1,8 +1,21 @@
-import React from "react";
+import React, {useState}from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+
 
 
 const Navbar = () => {
+  // class Navbar extends React.Component {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+   function componentDidMount() {
+    console.log("we are componentDidMount")
+    if(localStorage.getItem("authToken")) {
+      setIsLoggedIn(true);
+    }
+  }
+  
+  render ()
   return (
     <nav id="navbar" className="navbar bg-dark">
       <h1>
@@ -30,6 +43,13 @@ const Navbar = () => {
           <Link to="/about">About-Us</Link>
         </li>
         <li>
+          <Link className="" to="/logout">
+            Logout
+          </Link>
+        </li>
+      { isLoggedIn ? '' : 
+        <>
+        <li>
           <Link className="" to="/register">
             Register
           </Link>
@@ -39,6 +59,8 @@ const Navbar = () => {
             Login
           </Link>
         </li>
+        </>
+      }
       </ul>
     </nav>
   );

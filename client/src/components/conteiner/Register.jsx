@@ -94,9 +94,9 @@ const Register = () => {
             />
         </div>
         <div className="form-group">
-            <div>Choose one of the options .</div>
+            <small>Choose one of the options .</small>
             <input id="Student" name="who"  type="radio" checked="checked" />
-          <label className="Radio-Buttons" for="Student" >Student</label>
+           <label className="Radio-Buttons" for="Student" >Student</label>
             <span class="checkmark"></span>
             <input id="Lecture" name="who" type="radio" checked="checked" />
            <label className="Radio-Buttons" for="Lecture" >Lecture</label>
@@ -110,7 +110,6 @@ const Register = () => {
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
  <Footer/>
-
     </Fragment>
   );
 };

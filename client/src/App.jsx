@@ -7,11 +7,12 @@ import StudentProfile from "./components/userComponets/StudentProfile";
 import About from "./components/conteiner/About";
 import Login from "./components/conteiner/LogIn";
 import Register from "./components/conteiner/Register";
+import Logout from "./components/conteiner/Logout";
+
 import axios from "axios";
 import './App.css';
 
 function App() {
-
     const [user, setUser] = useState({
     token: null,
     user: null,
@@ -46,6 +47,7 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/logout" component={Logout} />
           </Switch>
         </section>
       </Fragment>
