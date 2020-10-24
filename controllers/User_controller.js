@@ -164,7 +164,7 @@ const getAllTeachers = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
-
+/////////////////////////////////////////////////
 const authenticateUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -174,12 +174,10 @@ const authenticateUser = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
-
+/////////////////////////////////////////////////
 const deleteUser = async (req, res) => {
-  console.log("------------");
-  const { _id } = req.body;
-  await User.findOneAndDelete({ _id }, (err, deleteuser) => {
-   
+  
+  await User.findByIdAndDelete({ _id: req.params.id }, (err, deleteuser) => {
     if (err) {
       return res.status(400).json({ success: false, error: err });
     }
@@ -188,10 +186,42 @@ const deleteUser = async (req, res) => {
         .status(404)
         .json({ success: false, error: `user not found` });
     }
-    return res.status(200).json({ success: false, data: deleteuser });
+    return res.status(200).json({ success: true, data: deleteuser });
   }).catch((err) => console.log(err));
 };
+/////////////////////////////////////////////////
+const updateUser = async (req, res) => {
+  const body = req.body;
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: "You must provide a body to update",
+    });
+  }
+  try {
+    const updateuser = await User.findOne({ _id: req.params.id }).exec();
+    
 
+    updateuser.fullName = body.fullName;
+    //updateuser.experience = body.experience;
+    //updateuser.education = body.education;
+   
+    updateuser.save()
+    .then(() => {
+      return res.status(200).json({
+        success: true,
+        message: "user updated !",
+        data: updateuser,
+      });
+    });
+  } catch (error) {
+    return res.status(400).json({ success: false,error: err});
+  }
+};
+
+//const updateuser = await User.updateOne({ _id: req.params.id }, {$addToSet{experience:[req.body]}}).exec();
+
+/////////////////////////////////////////////////
 
 module.exports = {
   CreateUser,
@@ -202,4 +232,22 @@ module.exports = {
   getAllTeachers,
   authenticateUser,
   deleteUser,
+  updateUser,
+
 };
+
+
+// {
+//   "_id":{"$oid":"5f73b0bacfea644a44798c29"},
+//   "skills":["Node.js","HTML","CSS"],
+//   "fullName":"shlomo Tagawi",
+//   "email":"shlsdomd053@gmail.com",
+//   "password":"$2a$10$8gTZO0.WutOmicuoHf64LemaA.bxRb5JwZWULm9KgICVunwgyd2ra",
+//   "status":"true",
+//   "experience":[],
+//   "education":[],
+//   "date":{"$date":"2020-09-29T22:10:02.843Z"},
+//   "isTeacher":true,
+//   "Avatar":"https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",
+//   "__v":0
+//   }

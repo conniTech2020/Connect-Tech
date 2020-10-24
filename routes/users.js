@@ -24,7 +24,7 @@ const router = express.Router();
 // });
 
 // @route    GET /users/getAllStudent
-// @desc     Get all Users
+// @desc     Get all Users(Students)
 // @access   Public
 
 router.get('/getAllStudent', User_Controller.getAllUsers);
@@ -32,7 +32,7 @@ router.get('/getAllStudent', User_Controller.getAllUsers);
 /////////////////////////////////////////////////////
 
 // @route    GET /users/getAllTeacher
-// @desc     Get all Users
+// @desc     Get all Users(teachers)
 // @access   Public
 
 router.get('/getAllTeachers', User_Controller.getAllTeachers);
@@ -72,8 +72,18 @@ router.post('/tokenIsValid', async (req, res) => {
 });
 
 //@ route GET/users/deleteUser
+// @desc update user
+// @access Public
 
-router.delete('/deleteUser', auth, User_Controller.deleteUser);
+router.delete('/deleteUser/:id', User_Controller.deleteUser);
+
+/////////////////////////////////////////////////////////////
+
+//@ route GET/users/updateUser
+// @desc update user
+// @access Public
+
+router.put('/updateUser/:id', User_Controller.updateUser);
 
 /////////////////////////////////////////////////////////////
 

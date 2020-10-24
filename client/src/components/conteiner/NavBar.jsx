@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 
 
 const Navbar = () => {
-  // class Navbar extends React.Component {
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
    function componentDidMount() {
@@ -15,7 +15,7 @@ const Navbar = () => {
     }
   }
   
-  render ()
+  
   return (
     <nav id="navbar" className="navbar bg-dark">
       <h1>

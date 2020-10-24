@@ -5,7 +5,7 @@ const api = axios.create({
   baseURL: "http://localhost:3001",
 });
 export const getAllStudent = () => api.get(`/users/getAllStudent`);
-const getAllTeachers = () => api.get(`/users/getAllTeachers`).then(response=>response.data);
+export const getAllTeachers = () => api.get(`/users/getAllTeachers`).then(response=>response.data);
 export const updateUserById = () => api.put(`/users/updateUserById`);
 export const deleteUserById = () => api.delete(`/users/deleteUserById`);
 export const getUserById = () => api.get(`/users/getUserById`);

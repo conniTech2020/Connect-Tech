@@ -14,9 +14,9 @@ function Logout() {
     
     return ( 
         <>
-        <Button onClick={out}>
+        <button onClick={out}>
             Logout
-        </Button>
+        </button>
         {redirect ? <Redirect to="/Home" /> : ""}
         </>
     )
