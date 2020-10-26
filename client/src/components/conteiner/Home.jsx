@@ -1,12 +1,10 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../basicComponents/Footer"
 
 
-const Home = ({ isAuthenticated }) => {
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
-  }
+const Home = () => {
+ 
 
   return (
       <div>

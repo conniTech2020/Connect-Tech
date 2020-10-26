@@ -326,7 +326,7 @@ module.exports = {
 //   "password":"$2a$10$8gTZO0.WutOmicuoHf64LemaA.bxRb5JwZWULm9KgICVunwgyd2ra",
 //   "status":"true",
 //   "experience":[],
-//   "education":[],
+//   "education":[], 
 //   "date":{"$date":"2020-09-29T22:10:02.843Z"},
 //   "isTeacher":true,
 //   "Avatar":"https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",

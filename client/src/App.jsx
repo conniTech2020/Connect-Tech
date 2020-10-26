@@ -27,7 +27,7 @@ function App() {
         token: tokenRes.data.token,
         user: tokenRes.data.user,
       });
-    }
+    } 
   };
 
   useEffect(() => {

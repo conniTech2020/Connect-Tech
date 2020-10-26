@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav id="navbar" className="navbar bg-dark">
       <h1>
-        <Link to="/home">
+        <Link to="/Home">
           <i className="">ConnecTech</i>
         </Link>
       </h1>

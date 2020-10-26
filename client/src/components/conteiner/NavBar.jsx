@@ -1,7 +1,7 @@
 import React, {useState}from "react";
 import { Link } from "react-router-dom";
 import Logout from "./Logout"
-import { Redirect } from "react-router-dom";
+//import { Redirect } from "react-router-dom";
 
 
 
@@ -32,7 +32,7 @@ const Navbar = (props) => {
         </li>
         <li>
           <Link className="" to="/studentProfile">
-          LectureCards
+          StudentCards
           </Link>
         </li>
         <li>
