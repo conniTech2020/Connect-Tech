@@ -12,18 +12,21 @@ const Register = () => {
     email: "",
     password: "",
     password2: "",
+    isTeacher:true,
     // status: "", // check box
     // skills: "", // string Array
   });
  
-  const { fullName, email, password, password2 } = formData;
+  const { fullName, email, password, password2,isTeacher} = formData;
 
   const onChange = (e) => {
     const { name, value } = e.target;
+    console.log(e.target);
     setFormData({ ...formData, [name]: value });
   };
 
   const onSubmit = async (e) => {
+    console.log(e);
     e.preventDefault(); // prevent refresh/reload page
 
     if (password !== password2) {
@@ -94,13 +97,13 @@ const Register = () => {
             />
         </div>
         <div className="form-group">
-          <div>
             <small>Choose one of the options .</small>
-          </div>
-            <input id="Student" name="who"  type="radio" checked="checked" />
+            <input id="Student" name="who"  type="radio" checked="checked" value={isTeacher}
+            onChange={onChange} />
            <label className="Radio-Buttons" for="Student" >Student</label>
             <span class="checkmark"></span>
-            <input id="Lecture" name="who" type="radio" checked="checked" />
+            <input id="Lecture" name="who" type="radio" checked="checked" value={isTeacher}
+            onChange={onChange}/>
            <label className="Radio-Buttons" for="Lecture" >Lecture</label>
             <span class="checkmark"></span>
         </div>
