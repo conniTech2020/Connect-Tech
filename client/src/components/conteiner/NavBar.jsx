@@ -1,5 +1,6 @@
 import React, {useState}from "react";
 import { Link } from "react-router-dom";
+import Logout from "./Logout"
 import { Redirect } from "react-router-dom";
 
 
@@ -19,7 +20,7 @@ const Navbar = () => {
   return (
     <nav id="navbar" className="navbar bg-dark">
       <h1>
-        <Link to="/home">
+        <Link to="/home"  >
           <i className="">ConnecTech</i>
         </Link>
       </h1>
@@ -43,24 +44,12 @@ const Navbar = () => {
           <Link to="/about">About-Us</Link>
         </li>
         <li>
-          <Link className="" to="/logout">
-            Logout
-          </Link>
+            <Logout/>
         </li>
-      { isLoggedIn ? '' : 
+      {/* { !props.isLoggedIn ? '' : 
         <>
-        {/* <li>
-          <Link className="" to="/register">
-            Register
-          </Link>
-        </li>
-        <li>
-          <Link className="" to="/login">
-            Login
-          </Link>
-        </li> */}
         </>
-      }
+      } */}
       </ul>
     </nav>
   );

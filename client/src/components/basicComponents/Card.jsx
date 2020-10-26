@@ -13,9 +13,11 @@ function Card(props) {
           <p>{props.phone}</p>
           <p className="Crardicon">{props.email}</p>
           <p>{props.age}</p>
-          <p>
+          { !props.isHavBtn &&
+           <p>
             <button class="button">Contact</button>
           </p>
+          }
         </div>
       </div>
     </div>

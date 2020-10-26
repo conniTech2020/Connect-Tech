@@ -14,10 +14,10 @@ function Logout() {
     
     return ( 
         <>
-        <button onClick={out}>
+        <button onClick={out} className="btn2 btn-light">
             Logout
         </button>
-        {redirect ? <Redirect to="/Home" /> : ""}
+        {redirect ? <Redirect to="home" /> : ""}
         </>
     )
 }

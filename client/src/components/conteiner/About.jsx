@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import Card from "../basicComponents/Card";
 import Footer from "../basicComponents/Footer"
 
+var isHavBtn = true;
+
 function About() {
   return (
     <Fragment>
@@ -30,6 +32,7 @@ function About() {
             phone="052-4157046"
             email="tomswalla@gmail.com"
             age="22"
+            isHavBtn={isHavBtn}
           />
           <Card
             // key="1"
@@ -40,6 +43,8 @@ function About() {
             phone="052-4157046"
             email="tomswalla@gmail.com"
             age="22"
+            isHavBtn={isHavBtn}
+
           />
           <Card
             // key="1"
@@ -50,6 +55,8 @@ function About() {
             phone="052-4157046"
             email="tomswalla@gmail.com"
             age="22"
+            isHavBtn={isHavBtn}
+
           />
           <Card
             // key="1"
@@ -60,6 +67,8 @@ function About() {
             phone="052-4157046"
             email="tomswalla@gmail.com"
             age="22"
+            isHavBtn={isHavBtn}
+
           />
         </div> 
 <Footer/>

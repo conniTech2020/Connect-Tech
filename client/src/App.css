@@ -91,7 +91,22 @@ img {
   outline: none;
   border-radius: 50vh;
 }
-
+.btn2 {
+  display: inline-block;
+  background: var(--light-color);
+  color: #333;
+  padding: 0.05rem 0.5rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+  border-radius: 50vh;
+}
+.btn2 :checked {
+  color: var(--primary-color);
+}
 
 
 .alert {
@@ -217,7 +232,8 @@ img {
 
 .navbar a:hover {
   /* color: var(--primary-color); */
-  color: rgb(0, 60, 128);
+  /* color: rgb(0, 60, 128); */
+  color: var(--danger-color);
 }
 
 .navbar .welcome span {
