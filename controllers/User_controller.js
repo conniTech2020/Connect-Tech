@@ -20,6 +20,9 @@ const validationChecks = [
     "password",
     "Please enter a password with 6 or more characters"
   ).isLength({ min: 6 }),
+  check("isTeacher", "choose Student/Teacher is required")
+    //.isBoolean()
+    //.isEmpty()
   // check('status', 'Status is required').not().isEmpty(),
   // check('skills', 'Please Include at least one skill').not().isEmpty(),
 ];
@@ -35,6 +38,8 @@ const CreateUser = async (req, res) => {
   // validateInputFunc(req, res);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    console.log("yossefff..");
+
     return res.status(400).json({ errors: errors.array() });
   }
   ///////////////////////////////////////////////
@@ -44,10 +49,11 @@ const CreateUser = async (req, res) => {
     password,
     status,
     skills,
-    avatar,
+    Avatar,
     website,
     location,
     githubusername,
+    isTeacher,
   } = req.body;
 
   const userFields = {};
@@ -58,7 +64,9 @@ const CreateUser = async (req, res) => {
   if (password) userFields.password = password;
   if (status) userFields.status = status;
   if (skills) userFields.skills = skills;
-  if (avatar) userFields.avatar = avatar;
+  if (Avatar) userFields.Avatar = Avatar;
+  if (isTeacher) userFields.isTeacher = isTeacher;
+  if (isTeacher === false) userFields.isTeacher = isTeacher;
   // Optional
   // if (website) userFields.website = website;
   if (location) userFields.location = location;

@@ -47,7 +47,7 @@ const ListUsers = [
     name: "Tom Swalla",
     title: "Art Director",
     someTXT: "Some text that describes me lorem ipsum ipsum lorem.",
-    imgURL: "https://pbs.twimg.com/media/D2rVDFXWkAE2hx7.jpg",
+    imgURL: "https://cdn7.dissolve.com/p/D430_35_565/D430_35_565_1200.jpg",
     phone: "052-4157046",
     email: "tomswalla@gmail.com",
     age: "22",

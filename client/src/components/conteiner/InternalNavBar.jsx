@@ -49,7 +49,7 @@ const Navbar = () => {
         </li>
       { isLoggedIn ? '' : 
         <>
-        {/* <li>
+        <li>
           <Link className="" to="/register">
             Register
           </Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
           <Link className="" to="/login">
             Login
           </Link>
-        </li> */}
+        </li>
         </>
       }
       </ul>

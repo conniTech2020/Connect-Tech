@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   // status: { type: Boolean, required: true, default: false },
   // skills: { type: [String], required: true },
-  avatar: { type: String },
+  Avatar: { type: String },
   company: { type: String },
   website: { type: String },
   location: { type: String },
@@ -87,6 +87,9 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  isTeacher:{type: Boolean, required: true}
+
+
 });
 
 module.exports = User = mongoose.model('users', UserSchema);
