@@ -129,6 +129,7 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ errors: [{ msg: "Invalid Credentials" }] });
     }
 
+
     const payload = {
       user: {
         id: user.id,
@@ -173,6 +174,7 @@ const getAllTeachers = async (req, res) => {
   }
 };
 /////////////////////////////////////////////////
+
 const authenticateUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -198,6 +200,30 @@ const deleteUser = async (req, res) => {
   }).catch((err) => console.log(err));
 };
 /////////////////////////////////////////////////
+const updateExperience = async (req, res) => {
+  const body = req.body;
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: "You must provide a body to update",
+    });
+  }
+  try {
+    const updateuser = await User.updateOne({ _id: req.params.id }, { $addToSet:{experience:[req.body]}});
+
+      return res.status(200).json({
+        success: true,
+        message: "user updated !",
+        data: updateuser,
+      });  
+  }
+  catch(error) {
+    return res.status(400).json({ success: false,error: err});
+  }
+};
+
+/////////////////////////////////
+
 const updateUser = async (req, res) => {
   const body = req.body;
   if (!body) {
@@ -208,11 +234,10 @@ const updateUser = async (req, res) => {
   }
   try {
     const updateuser = await User.findOne({ _id: req.params.id }).exec();
-    
 
     updateuser.fullName = body.fullName;
-    //updateuser.experience = body.experience;
-    //updateuser.education = body.education;
+    updateuser.experience = body.updateExperience;
+    updateuser.education = body.education;
    
     updateuser.save()
     .then(() => {
@@ -227,8 +252,56 @@ const updateUser = async (req, res) => {
   }
 };
 
+/////////////////////////////////
+
+const UpdateAll = async (req, res) => {
+  const body = req.body;
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: "You must provide a body to update",
+    });
+  }
+  try {
+    const updateuser = await User.updateOne({ _id: req.params.id }, req.body).exec();
+
+      return res.status(200).json({
+        success: true,
+        message: "user updated !",
+        data: updateuser,
+      });
+  
+  } catch (error) {
+    return res.status(400).json({ success: false,error: err});
+  }
+};
+
 //const updateuser = await User.updateOne({ _id: req.params.id }, {$addToSet{experience:[req.body]}}).exec();
 
+/////////////////////////////////////////////////
+
+const GetUserById = async (req, res) => {
+  const body = req.body;
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: "user did not found",
+    });
+  }
+  try {
+    const updateuser = await User.findOne({ _id: req.params.id }).exec();
+      return res.status(200).json({
+        success: true,
+        message: "user found !",
+        data: updateuser,
+      });
+  }catch(error){
+
+    console.error(err.message);
+    res.status(500).send("can not found, Server Error");
+  }
+}
+  
 /////////////////////////////////////////////////
 
 module.exports = {

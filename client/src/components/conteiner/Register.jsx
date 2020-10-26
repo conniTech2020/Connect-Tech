@@ -14,18 +14,26 @@ const Register = () => {
     email: "",
     password: "",
     password2: "",
+<<<<<<< HEAD
     isTeacher : true ,
     // isStudent : false ,
+=======
+    isTeacher:true,
+    // status: "", // check box
+    // skills: "", // string Array
+>>>>>>> 721ec3498509ca36dd56d96e41ae09b4cc8a5489
   });
  
-  const { fullName, email, password, password2 } = formData;
+  const { fullName, email, password, password2,isTeacher} = formData;
 
   const onChange = (e) => {
     const { name, value } = e.target;
+    console.log(e.target);
     setFormData({ ...formData, [name]: value });
   };
 
   const onSubmit = async (e) => {
+    console.log(e);
     e.preventDefault(); // prevent refresh/reload page
 
     if (password !== password2) {
