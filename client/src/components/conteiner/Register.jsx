@@ -4,16 +4,18 @@ import { CreateUser } from "../../api/index";
 import Footer from "../basicComponents/Footer"
 
 
+
 const Register = () => {
   const [error, seterror] = useState("");
   const [succeed, setsucceed] = useState("");
+  const [isRedirect, setIsRedirect] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     password: "",
     password2: "",
-    // status: "", // check box
-    // skills: "", // string Array
+    isTeacher : true ,
+    // isStudent : false ,
   });
  
   const { fullName, email, password, password2 } = formData;
@@ -27,7 +29,8 @@ const Register = () => {
     e.preventDefault(); // prevent refresh/reload page
 
     if (password !== password2) {
-      seterror("password are not match!"); //  setError
+      seterror("password are not match!");
+       //  setError
       // setAlert("Passwords do not match", "danger");
     } else {
       // register({ name, email, password });
@@ -41,12 +44,13 @@ const Register = () => {
       const response = await CreateUser(formData);
      // console.log(err.response.data.errors[0].msg);
       setsucceed("new user created!");
+      // <Redirect to="/lectureCards" 
+      setIsRedirect(true);
       seterror("");
     } catch (err) {
       if (!err.response) {
         throw err;
       }
-     
       seterror(err.response.data.errors[0].msg);
     }
   };
@@ -95,14 +99,11 @@ const Register = () => {
         </div>
         <div className="form-group">
           <div>
-            <small>Choose one of the options .</small>
+            <small>Joining as a Lecture.</small>
           </div>
-            <input id="Student" name="who"  type="radio" checked="checked" />
-           <label className="Radio-Buttons" for="Student" >Student</label>
-            <span class="checkmark"></span>
-            <input id="Lecture" name="who" type="radio" checked="checked" />
-           <label className="Radio-Buttons" for="Lecture" >Lecture</label>
-            <span class="checkmark"></span>
+            <input id="Lecture" name="who" type="radio" />
+           <label className="Radio-Buttons" for="Lecture" value={formData.isTeacher}
+            onChange={onChange} >Lecture</label>
         </div>
         <input type="submit" className="btn btn-primary" value="Register" />
       </form>
@@ -111,7 +112,9 @@ const Register = () => {
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
- <Footer/>
+      {  isRedirect  && formData.isTeacher && <Redirect to="/studentProfile"/> }
+      {/* {  !isRedirect  && formData.isTeacher && <Redirect to="/lectureCards"/> } */}
+    <Footer/>
     </Fragment>
   );
 };

@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <nav id="navbar" className="navbar bg-dark">
       <h1>
-        <Link to="/home"  >
+        <Link to="/" >
           <i className="">ConnecTech</i>
         </Link>
       </h1>
@@ -30,26 +30,14 @@ const Navbar = () => {
           LectureCards
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link className="" to="/studentProfile">
-          StudentProfile
+          LectureCards
           </Link>
-        </li> */}
-        {/* <li>
-          <Link className="" to="/home">
-            Home
-          </Link>
-        </li> */}
-        <li>
-          <Link to="/about">About-Us</Link>
         </li>
         <li>
-            <Logout/>
+        {  !props.isLoggedIn && <Logout /> }
         </li>
-      {/* { !props.isLoggedIn ? '' : 
-        <>
-        </>
-      } */}
       </ul>
     </nav>
   );

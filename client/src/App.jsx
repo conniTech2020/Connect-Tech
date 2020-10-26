@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch  } from "react-router-dom";
 import Navbar from "./components/conteiner/NavBar";
 import Home from "./components/conteiner/Home";
 import Lecture from "./components/userComponets/LectureCards";
@@ -39,7 +39,7 @@ function App() {
       <Router>
       <Fragment>
         <Navbar />
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
         <section className="container">
           <Switch>
             <Route exact path="/studentProfile" component={StudentProfile} />

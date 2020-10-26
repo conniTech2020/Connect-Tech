@@ -17,8 +17,6 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    // if(email and password in DB) then do row 21
-    //else - something else
     console.log(email, password);
     const res = await axios.post("/users/login", { email, password });
     localStorage.setItem("authToken", res.data.token);
@@ -33,22 +31,16 @@ export default function Login() {
       </p>
       <form className="form" onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
-          {/* <div className="form-group"> */}
           <div>Email</div>
           <input
-            // placeholder="Type your email"
-            // autoFocus
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {/* </div> */}
         </FormGroup>
-
         <FormGroup controlId="password" bsSize="large">
           <div>Password</div>
           <FormControl
-            // placeholder="Type your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -57,7 +49,7 @@ export default function Login() {
         <Button block bsSize="large" disabled={!validateForm()} type="submit">
           Login
         </Button>
-        {redirect ? <Redirect to="/student" /> : ""}
+        {redirect ? <Redirect to="/studentProfile" /> : ""}
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
