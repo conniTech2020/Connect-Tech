@@ -37,38 +37,48 @@ router.get('/getAllStudent', User_Controller.getAllUsers);
 
 router.get('/getAllTeachers', User_Controller.getAllTeachers);
 
-
 ///////////////////////////////////////////////////////
 
 // @route    POST /users/register
 // @desc     Register User
 // @access   Public
 
-router.post('/register', User_Controller.validationChecks, User_Controller.CreateUser);
+router.post(
+  '/register',
+  User_Controller.validationChecks,
+  User_Controller.CreateUser
+);
 
 /////////////////////////////////////////////////////////////
 // @route    POST /users/login
 // @desc     Authenticate User & get token
 // @access   Public
 
-router.post('/login', User_Controller.validateLoginInput, User_Controller.loginUser);
+router.post(
+  '/login',
+  User_Controller.validateLoginInput,
+  User_Controller.loginUser
+);
 
 /////////////////////////////////////////////////////////////
 
 router.post('/tokenIsValid', async (req, res) => {
   try {
     const token = req.header('x-auth-token');
-    if (!token) return res.json(false);
+    console.log('token:', token);
+    if (!token) return res.json({ isValidToken: false });
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-    if(!verified) return res.json(false)
-    const user = await User.findById(verified.id);
-    if(!user) return res.json(false)
+    console.log('verified:', verified);
+    if (!verified) return res.json(false);
+    const user = await User.findById(verified.user.id);
+    console.log('user:', user);
 
-    return res.json(true)
+    if (!user) return res.json({ isValidToken: false });
+
+    return res.json({ isValidToken: true });
   } catch (err) {
-      return err.message
+    return err.message;
   }
-    
 });
 
 //@ route GET/users/deleteUser
@@ -92,6 +102,5 @@ router.put('/updateUser/:id', User_Controller.updateUser);
 // @access   Public
 
 router.get('/userauth', auth, User_Controller.authenticateUser);
-
 
 module.exports = router;

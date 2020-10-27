@@ -1,24 +1,23 @@
-import React, {useState} from 'react'
-import { Redirect } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
+function Logout(props) {
+  const history = useHistory();
 
-function Logout() {
-    const [redirect, setRedirect] = useState(false);
+  const out = () => {
+    console.log(localStorage.getItem('authToken'));
+    localStorage.removeItem('authToken');
+    console.log(localStorage.getItem('authToken'));
+    props.setUser({});
+    history.push('/');
+  };
 
-    function out() {
-      console.log(localStorage.getItem("authToken"))
-      localStorage.removeItem("authToken");
-      console.log(localStorage.getItem("authToken"))
-      setRedirect(true);
-    }
-    
-    return ( 
-        <>
-        <button onClick={out} className="btn2 btn-light">
-            Logout
-        </button>
-        {redirect ? <Redirect to="home" /> : ""}
-        </>
-    )
+  return (
+    <>
+      <button onClick={out} className='btn2 btn-light'>
+        Logout
+      </button>
+    </>
+  );
 }
-export default Logout
+export default Logout;
