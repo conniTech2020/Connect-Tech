@@ -50,7 +50,7 @@ export default function Login(props) {
         <Button block bsSize='large' disabled={!validateForm()} type='submit'>
           Login
         </Button>
-        {redirect ? <Redirect to='/studentProfile' /> : ''}
+        {redirect ? <Redirect to='/lectures' /> : ''}
       </form>
       <p className='my-1'>
         Don't have an account? <Link to='/register'>Sign Up</Link>
