@@ -32,7 +32,7 @@ function CreateCards() {
     cards()
   },[]);
   
-  return <div>{teachers.map(createCard)}</div>;
+  return <div id="card_container">{teachers.map(createCard)}</div>;
 
 }
 
