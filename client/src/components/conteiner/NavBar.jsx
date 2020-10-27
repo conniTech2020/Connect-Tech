@@ -1,7 +1,7 @@
 import React, {useState}from "react";
 import { Link } from "react-router-dom";
 import Logout from "./Logout"
-//import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -16,7 +16,7 @@ const Navbar = (props) => {
     }
   }
   
-  
+  console.log(props)
   return (
     <nav id="navbar" className="navbar bg-dark">
       <h1>
@@ -32,11 +32,11 @@ const Navbar = (props) => {
         </li>
         <li>
           <Link className="" to="/studentProfile">
-          StudentCards
+          LectureCards
           </Link>
         </li>
         <li>
-        {  !props.isLoggedIn && <Logout /> }
+        {  props.isLoggedIn && <Logout /> }
         </li>
       </ul>
     </nav>

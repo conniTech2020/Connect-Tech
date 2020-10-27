@@ -7,7 +7,7 @@ function Card(props) {
       <div className="card">
         <div className="container">
           <Avatar img={props.img} />
-          <h2>{props.name}</h2>
+          <h2><a>{props.name}</a></h2>
           <p className="title">{props.title}</p>
           <p>{props.someTXT}</p>
           <p>{props.phone}</p>

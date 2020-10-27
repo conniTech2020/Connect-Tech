@@ -11,14 +11,15 @@ function Logout() {
       console.log(localStorage.getItem("authToken"))
       setRedirect(true);
     }
-    
-    return ( 
+    const token= localStorage.getItem("authToken")
+    console.log(redirect)
+    return token?( 
         <>
         <button onClick={out} className="btn2 btn-light">
             Logout
         </button>
-        {redirect ? <Redirect to="home" /> : ""}
+        {redirect ? <Redirect to="/" /> : ""}
         </>
-    )
+    ):null
 }
 export default Logout
