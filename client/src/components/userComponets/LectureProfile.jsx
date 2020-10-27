@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
 import Avatar from "../basicComponents/Avatar";
-import CreateCard from "../basicComponents/CreateCards"
 import Footer from "../basicComponents/Footer"
 
-function LectureProfile(props) {
+function LectureProfile() {
   return (
     <Fragment>
       <div>
@@ -11,8 +10,6 @@ function LectureProfile(props) {
           <h1>My Profile</h1>
           <p>Welcome Tom Swalla</p>
         </div> 
-        
-        {/* <CreateCard/> */}
         <div class="boxStudentProfile">
           <div class="studentCard">
             <div>
@@ -26,7 +23,7 @@ function LectureProfile(props) {
                   <h2>Jane Doe</h2>
                   <p class="title">CEO Founder</p>
                   <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>{props.email}/p>
+                <p>Tomswalla@gmail.com</p>
                   <p>
                     <button class="button">Contact</button>
                   </p>

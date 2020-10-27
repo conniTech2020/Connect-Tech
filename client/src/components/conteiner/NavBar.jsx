@@ -26,13 +26,18 @@ const Navbar = (props) => {
       </h1>
       <ul>
         <li>
-          <Link className="" to="/lectureCards">
-          LectureCards
+          <Link className="" to="/about">
+          About
           </Link>
         </li>
         <li>
-          <Link className="" to="/studentProfile">
-          LectureCards
+          <Link className="" to="/lectures">
+          Lectures
+          </Link>
+        </li>
+        <li>
+          <Link className="" to="/lectureProfile">
+          LectureProfile
           </Link>
         </li>
         <li>

@@ -115,7 +115,7 @@ const Register = () => {
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
-      {  isRedirect  && formData.isTeacher && <Redirect to="/studentProfile"/> }
+      {  isRedirect  && formData.isTeacher && <Redirect to="/lectures"/> }
       {/* {  !isRedirect  && formData.isTeacher && <Redirect to="/lectureCards"/> } */}
     <Footer/>
     </Fragment>

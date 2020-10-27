@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import Avatar from "../basicComponents/Avatar";
-import CreateCard from "../basicComponents/CreateCards"
 import Footer from "../basicComponents/Footer"
 
 function StudentProfile(props) {

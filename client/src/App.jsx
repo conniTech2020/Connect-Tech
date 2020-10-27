@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch  } from "react-router-dom";
 import Navbar from "./components/conteiner/NavBar";
 import Home from "./components/conteiner/Home";
-import Lecture from "./components/userComponets/LectureCards";
-import StudentProfile from "./components/userComponets/StudentProfile";
+import Lectures from "./components/userComponets/Lectures";
+import LectureProfile from "./components/userComponets/LectureProfile";
 import About from "./components/conteiner/About";
 import Login from "./components/conteiner/LogIn";
 import Register from "./components/conteiner/Register";
@@ -42,8 +42,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <section className="container">
           <Switch>
-            <Route exact path="/studentProfile" component={StudentProfile} />
-            <Route exact path="/lectureCards" component={Lecture} />
+            <Route exact path="/lectureProfile" component={LectureProfile} />
+            <Route exact path="/lectures" component={Lectures} />
             <Route exact path="/about" component={About} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
