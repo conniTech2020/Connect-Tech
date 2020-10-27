@@ -21,11 +21,19 @@ function createCard(teacher) {
 
 function CreateCards() {
   const [teachers, setTeachers] = useState([]);
-  useEffect(async ()=>{
+  
+  async function cards()
+  {
     const respone = await apis.getAllTeachers();
     setTeachers(respone);
+  }
+
+  useEffect(()=>{
+    cards()
   },[]);
+  
   return <div>{teachers.map(createCard)}</div>;
+
 }
 
 export default CreateCards;
