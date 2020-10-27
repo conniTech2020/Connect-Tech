@@ -101,7 +101,7 @@ const Register = () => {
           <div>
             <small>Joining as a Lecture.</small>
           </div>
-          <input id='Lecture' name='who' type='radio' />
+          <input id='Lecture' name='who' type='checkbox' />
           <label
             className='Radio-Buttons'
             for='Lecture'
