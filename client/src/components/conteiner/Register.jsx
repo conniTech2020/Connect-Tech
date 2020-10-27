@@ -12,7 +12,7 @@ const Register = () => {
     email: '',
     password: '',
     password2: '',
-    isTeacher: true,
+    isTeacher: false,
     // status: "", // check box
     // skills: "", // string Array
   });
@@ -20,20 +20,22 @@ const Register = () => {
   const { fullName, email, password, password2, isTeacher } = formData;
 
   const onChange = (e) => {
-    const { name, value } = e.target;
+    debugger;
+    const { name, value, checked } = e.target;
+    if (name === 'isTeacher') {
+      setFormData({ ...formData, [name]: Boolean(checked) });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
     console.log(e.target);
-    setFormData({ ...formData, [name]: value });
   };
+  console.log(formData);
 
   const onSubmit = async (e) => {
-    console.log(e);
     e.preventDefault(); // prevent refresh/reload page
-
     if (password !== password2) {
       seterror('password are not match!');
-      // setAlert("Passwords do not match", "danger");
     } else {
-      // register({ name, email, password });
       makenewuser();
     }
   };
@@ -41,9 +43,6 @@ const Register = () => {
   const makenewuser = async () => {
     try {
       const response = await CreateUser(formData);
-      // console.log(err.response.data.errors[0].msg);
-      // setsucceed('new user created!');
-      // <Redirect to="/lectureCards"
       setsucceed('new user created!');
       setIsRedirect(true);
       seterror('');
@@ -101,13 +100,14 @@ const Register = () => {
           <div>
             <small>Joining as a Lecture.</small>
           </div>
-          <input id='Lecture' name='who' type='checkbox' />
-          <label
-            className='Radio-Buttons'
-            for='Lecture'
-            value={formData.isTeacher}
+          <input
+            id='Lecture'
+            name='isTeacher'
+            type='checkbox'
+            // value={formData.isTeacher}
             onChange={onChange}
-          >
+          />
+          <label className='Radio-Buttons' for='Lecture'>
             Lecture
           </label>
         </div>
@@ -118,7 +118,7 @@ const Register = () => {
       <p className='my-1'>
         Already have an account? <Link to='/login'>Sign In</Link>
       </p>
-      {  isRedirect  && formData.isTeacher && <Redirect to="/lectures"/> }
+      {isRedirect && formData.isTeacher && <Redirect to='/lectures' />}
       <Footer />
     </Fragment>
   );
