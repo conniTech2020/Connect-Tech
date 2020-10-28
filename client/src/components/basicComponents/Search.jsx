@@ -10,10 +10,8 @@ function Search() {
     input = document.getElementById("searchInput");
     filter = input.value;
     div = document.getElementById("card_container");
-console.log(div)
     h2 = div.getElementsByTagName("h2");
     column = div.getElementsByClassName("column");
-    console.log(column)
     for (i = 0; i < h2.length; i++) {
         a = h2[i].getElementsByTagName("a")[0];
         txtValue = a.textContent || a.innerText;

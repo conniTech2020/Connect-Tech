@@ -10,10 +10,7 @@ function createCard(teacher) {
       key={teacher.id}
       name={teacher.fullName}
       email={teacher.email}
-      // someTXT={teacher.someTXT}
       img={teacher.Avatar}
-      // phone={teacher.exper}
-      // age={teacher.age}
     />
   );
 }

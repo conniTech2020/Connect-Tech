@@ -24,22 +24,13 @@ const validationChecks = [
   
 ];
 
-// const validateInputFunc = (req, res) => {
-//   const errors = validationResult(req);
-//   if (!errors.isEmpty()) {
-//     return res.status(400).json({ errors: errors.array() });
-//   }
-// };
+
 const CreateUser = async (req, res) => {
-  // split to validateInputFunc
-  // validateInputFunc(req, res);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log("yossefff..");
 
     return res.status(400).json({ errors: errors.array() });
   }
-  ///////////////////////////////////////////////
   const {
     fullName,
     email,
@@ -72,7 +63,6 @@ const CreateUser = async (req, res) => {
     userFields.skills = skills.split(",").map((skill) => skill.trim());
   }
   try {
-    console.log(email);
     let user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({ errors: [{ msg: "User already exists" }] });
@@ -82,7 +72,6 @@ const CreateUser = async (req, res) => {
       r: "pg",
       d: "mm",
     });
-    console.log("user: ", userFields);
     
     const salt = await bcrypt.genSalt(10);
     userFields.password = await bcrypt.hash(password, salt);
@@ -91,7 +80,6 @@ const CreateUser = async (req, res) => {
     const payload = {
       user: { id: user.id },
     };
-    /// split to authenticateUserFunc
     jwt.sign(
       payload,
       process.env.JWT_SECRET,
@@ -102,13 +90,12 @@ const CreateUser = async (req, res) => {
       }
     );
     
-    /////////////////////////////////////
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 };
-/////////////////////////////////////////////////////
+
 
 const loginUser = async (req, res) => {
   const errors = validationResult(req);
@@ -147,7 +134,7 @@ const loginUser = async (req, res) => {
   }
 };
 
-/////////////////////////////////////////////////
+
 
 const getAllUsers = async (req, res) => {
   try {
@@ -159,7 +146,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-/////////////////////////////////////////////////
+
 
 const getAllTeachers = async (req, res) => {
   try {
@@ -170,7 +157,7 @@ const getAllTeachers = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
-/////////////////////////////////////////////////
+
 
 const authenticateUser = async (req, res) => {
   try {
@@ -181,7 +168,7 @@ const authenticateUser = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
-/////////////////////////////////////////////////
+
 const deleteUser = async (req, res) => {
   
   await User.findByIdAndDelete({ _id: req.params.id }, (err, deleteuser) => {
@@ -196,7 +183,7 @@ const deleteUser = async (req, res) => {
     return res.status(200).json({ success: true, data: deleteuser });
   }).catch((err) => console.log(err));
 };
-/////////////////////////////////////////////////
+
 const updateExperience = async (req, res) => {
   const body = req.body;
   if (!body) {
@@ -219,7 +206,7 @@ const updateExperience = async (req, res) => {
   }
 };
 
-/////////////////////////////////
+
 
 const updateUser = async (req, res) => {
   const body = req.body;
@@ -249,7 +236,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-/////////////////////////////////
+
 
 const UpdateAll = async (req, res) => {
   const body = req.body;
@@ -275,7 +262,7 @@ const UpdateAll = async (req, res) => {
 
 
 
-/////////////////////////////////////////////////
+
 
 const GetUserById = async (req, res) => {
   const body = req.body;
@@ -299,7 +286,7 @@ const GetUserById = async (req, res) => {
   }
 }
   
-/////////////////////////////////////////////////
+
 
 module.exports = {
   CreateUser,

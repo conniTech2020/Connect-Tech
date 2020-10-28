@@ -8,9 +8,7 @@ const TeacherSchema = new mongoose.Schema({
   skills: { type: [String], required: true },
   bio: { type: String },
   avatar: { type: String },
-  professions:{type: [String],required: true}, //profession:{3243,2343,32432}
-//   company: { type: String },
-//   website: { type: String },
+  professions:{type: [String],required: true}, 
   location: { type: String },
   githubusername: { type: String },
   date: { type: Date, default: Date.now },

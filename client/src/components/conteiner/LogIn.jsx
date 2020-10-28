@@ -17,7 +17,6 @@ export default function Login(props) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(email, password);
     const res = await axios.post('/users/login', { email, password });
     localStorage.setItem('authToken', res.data.token);
     props.setUser({ isLoggedIn: true, token: res.data.token });

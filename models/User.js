@@ -3,15 +3,11 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  // status: { type: Boolean, required: true, default: false },
-  // skills: { type: [String], required: true },
-  
+  password: { type: String, required: true },  
   Avatar: { type: String },
   company: { type: String },
   website: { type: String },
   location: { type: String },
-  // skills: { type: [String], required: true },
   bio: { type: String },
   githubusername: { type: String }, 
   experience: [

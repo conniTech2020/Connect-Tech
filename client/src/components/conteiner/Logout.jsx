@@ -5,9 +5,7 @@ function Logout(props) {
   const history = useHistory();
 
   const out = () => {
-    console.log(localStorage.getItem('authToken'));
     localStorage.removeItem('authToken');
-    console.log(localStorage.getItem('authToken'));
     props.setUser({});
     history.push('/');
   };

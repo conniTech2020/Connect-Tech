@@ -12,8 +12,7 @@ import axios from "axios";
 
 function Lecture(props) {
   return (
-    //TODO
-    //map.
+    
     <Fragment>
       <div className="aboutus">
         <div className="about-section">

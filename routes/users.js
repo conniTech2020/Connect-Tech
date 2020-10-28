@@ -52,14 +52,10 @@ router.post(
 router.post('/tokenIsValid', async (req, res) => {
   try {
     const token = req.header('x-auth-token');
-    console.log('token:', token);
     if (!token) return res.json({ isValidToken: false });
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-    console.log('verified:', verified);
     if (!verified) return res.json(false);
     const user = await User.findById(verified.user.id);
-    console.log('user:', user);
-
     if (!user) return res.json({ isValidToken: false });
 
     return res.json({ isValidToken: true });

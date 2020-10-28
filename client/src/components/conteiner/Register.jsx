@@ -13,8 +13,6 @@ const Register = () => {
     password: '',
     password2: '',
     isTeacher: false,
-    //status: "", // check box
-    //skills: "", // string Array
   });
 
   const { fullName, email, password, password2, isTeacher } = formData;
@@ -27,9 +25,7 @@ const Register = () => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
-    console.log(e.target);
   };
-  console.log(formData);
 
   const onSubmit = async (e) => {
     e.preventDefault(); // prevent refresh/reload page
@@ -104,7 +100,6 @@ const Register = () => {
             id='Lecture'
             name='isTeacher'
             type='checkbox'
-            // value={formData.isTeacher}
             onChange={onChange}
           />
           <label className='Radio-Buttons' for='Lecture'>

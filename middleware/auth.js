@@ -11,7 +11,6 @@ module.exports = function (req, res, next) {
 
   //Verify token
   try {
-    // check if need a promise or async await
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded.user;
     next();
