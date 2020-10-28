@@ -8,11 +8,7 @@ import axios from "axios";
  
 
 
-// const getAllUser = ()=>{
-//   const [error, seterror] = useState("");
-//   const [succeed, setsucceed] = useState("");
 
-// }
 
 function Lecture(props) {
   return (

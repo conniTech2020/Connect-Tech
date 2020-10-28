@@ -9,7 +9,7 @@ export const getAllTeachers = () => api.get(`/users/getAllTeachers`).then(respon
 export const updateUserById = () => api.put(`/users/updateUserById`);
 export const deleteUserById = () => api.delete(`/users/deleteUserById`);
 export const getUserById = () => api.get(`/users/getUserById`);
-//export const insertStudent = (payload) => api.post(`/student`, payload);
+
 export const CreateUser = (payload) => {
   
   return api.post(`/users/register`, payload);
@@ -21,9 +21,9 @@ export const getStudentById = (id) => api.get(`/student/${id}`);
 const apis = {
   getAllStudent,
   getAllTeachers,
-  updateUserById, //TODO SERVER - ADD IN CONTROLLERS
-  deleteUserById, //TODO SERVER - ADD IN CONTROLLERS
-  getUserById, //TODO SERVER - ADD IN CONTROLLERS
+  updateUserById, 
+  deleteUserById, 
+  getUserById,
   CreateUser,
 };
 

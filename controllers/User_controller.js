@@ -21,10 +21,7 @@ const validationChecks = [
     "Please enter a password with 6 or more characters"
   ).isLength({ min: 6 }),
   check("isTeacher", "choose Student/Teacher is required")
-    //.isBoolean()
-    //.isEmpty()
-  // check('status', 'Status is required').not().isEmpty(),
-  // check('skills', 'Please Include at least one skill').not().isEmpty(),
+  
 ];
 
 // const validateInputFunc = (req, res) => {
@@ -68,7 +65,7 @@ const CreateUser = async (req, res) => {
   if (isTeacher) userFields.isTeacher = isTeacher;
   if (isTeacher === false) userFields.isTeacher = isTeacher;
   // Optional
-  // if (website) userFields.website = website;
+  
   if (location) userFields.location = location;
   if (githubusername) userFields.githubusername = githubusername;
   if (skills) {
@@ -86,7 +83,7 @@ const CreateUser = async (req, res) => {
       d: "mm",
     });
     console.log("user: ", userFields);
-    //if (userFields.status) {
+    
     const salt = await bcrypt.genSalt(10);
     userFields.password = await bcrypt.hash(password, salt);
     user = new User(userFields);
@@ -276,7 +273,7 @@ const UpdateAll = async (req, res) => {
   }
 };
 
-//const updateuser = await User.updateOne({ _id: req.params.id }, {$addToSet{experience:[req.body]}}).exec();
+
 
 /////////////////////////////////////////////////
 
@@ -318,17 +315,3 @@ module.exports = {
 };
 
 
-// {
-//   "_id":{"$oid":"5f73b0bacfea644a44798c29"},
-//   "skills":["Node.js","HTML","CSS"],
-//   "fullName":"shlomo Tagawi",
-//   "email":"shlsdomd053@gmail.com",
-//   "password":"$2a$10$8gTZO0.WutOmicuoHf64LemaA.bxRb5JwZWULm9KgICVunwgyd2ra",
-//   "status":"true",
-//   "experience":[],
-//   "education":[], 
-//   "date":{"$date":"2020-09-29T22:10:02.843Z"},
-//   "isTeacher":true,
-//   "Avatar":"https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",
-//   "__v":0
-//   }

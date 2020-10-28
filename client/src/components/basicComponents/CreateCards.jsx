@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-// import User from "./ListUsers";
 import apis from "../../api/index";
 import {useState} from "react"; 
 import {useEffect} from "react";

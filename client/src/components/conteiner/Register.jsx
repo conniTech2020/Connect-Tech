@@ -13,8 +13,8 @@ const Register = () => {
     password: '',
     password2: '',
     isTeacher: false,
-    // status: "", // check box
-    // skills: "", // string Array
+    //status: "", // check box
+    //skills: "", // string Array
   });
 
   const { fullName, email, password, password2, isTeacher } = formData;
